@@ -1,15 +1,13 @@
 import torch
 import torch.nn.functional as F
 import numpy as np
-from transformers import (
-    DistilBertTokenizer,
-    DistilBertForSequenceClassification
-)
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
 import streamlit as st
 
 @st.cache_resource
 def load_model():
-    return DistilBertForSequenceClassification.from_pretrained("saved_model_final")
+    return AutoModelForSequenceClassification.from_pretrained("Alaouiii90/movie_emotion")
 # === Les 13 émotions ===
 labels = [
     "anger",
@@ -28,14 +26,13 @@ labels = [
 ]
 
 # === Chargement du modèle ===
-model = DistilBertForSequenceClassification.from_pretrained(
-    "saved_model_final"
+model = AutoModelForSequenceClassification.from_pretrained(
+    "Alaouiii90/movie_emotion"
 )
 
-tokenizer = DistilBertTokenizer.from_pretrained(
-    "saved_model_final"
+tokenizer = AutoTokenizer.from_pretrained(
+    "Alaouiii90/movie_emotion"
 )
-
 # Mode évaluation
 model.eval()
 
