@@ -1,0 +1,6 @@
+streamlit
+numpy
+pymongo
+transformers
+torch
+email-validator
